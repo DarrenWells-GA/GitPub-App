@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <%- include("./partials/head.ejs") %>
+    <body>
+        <h1>Welcome to the GitPub!</h1>
+        <style type="text/css">
+            body {
+              color: blanchedalmond;
+              background-color: steelblue;
+            }
+          </style>
+        <ul>
+            <% for(let i = 0; i < allDrinks.length; i++) { %>
+                <li>
+                    <a href="/drinks/<%=i%>">
+                        <%=allDrinks[i].name %></a>
+                        <form action="/drinks/<%= i %>?_method=DELETE" method="POST">
+                            <input type="submit" value="Delete">
+                        </form>
+                </li>
+            <% } %>
+    
+        </ul>
+
+    </body>
+</html>
